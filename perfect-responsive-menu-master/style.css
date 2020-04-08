@@ -1,13 +1,28 @@
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
 [hidden] {
 	display: none;
 }
 
 body {
-	overflow: hidden;
 	font-family: sans-serif;
+	min-height: 100vh;
+}
+
+.noscroll {
+	overflow: hidden;
 }
 
 @media ( max-width: 40rem ) {
+	.navigation {
+		position: fixed;
+		z-index: 10;
+	}
+
 	.navigation button {
 		display: block;
 		position: absolute;
@@ -16,7 +31,7 @@ body {
 		border: 0;
 		height: 32px;
 		width: 32px;
-		background: none;
+		background: #fff;
 		color: #107db5;
 		cursor: pointer;
 		font-size: 0rem;
@@ -25,6 +40,8 @@ body {
 	}
 
 	.navigation button svg {
+		position: relative;
+		z-index: 100;
 		display: block;
 		pointer-events: none;
 		stroke: currentcolor;
@@ -53,6 +70,7 @@ body {
 
 	.navigation button[aria-expanded=true] {
 		color: #fff;
+		background: #107db5;
 	}
 
 	.navigation button[aria-expanded=true]::before {
@@ -144,4 +162,8 @@ body {
 	#menu li a:focus {
 		background-size: 100% 100%;
 	}
+}
+
+main {
+	padding: 3em 1em;
 }
